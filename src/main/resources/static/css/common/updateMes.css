@@ -1,0 +1,71 @@
+body {
+    overflow: hidden !important;
+    background-color: #0c0f15 !important;
+}
+
+.nav_title {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%);
+    color: white;
+    text-shadow: 0px 0px 20px #fdec84,
+    10px -10px 30px #ffae35,
+    20px -20px 40px #ec760c,
+    -20px -60px 50px #cd4607,
+    0px -80px 60px #973717,
+    10px -40px 70px #451b0e;
+}
+
+.head_nav {
+    position: fixed;
+    padding: 25px 0;
+    height: 116px;
+    width: 100%;
+    border-bottom: 1px solid #252838;
+    z-index: 99;
+    background-color: #13151f;
+    z-index: 9999;
+}
+
+/*留言板样式*/
+.mainframe {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    height: 608px;
+    background-color: #13151f;
+    color: #EDEFF0;
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden !important;
+}
+
+/*滚动条样式*/
+.mainframe::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mainframe::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.mainframe::-webkit-scrollbar-thumb {
+    background-color: #e7535b;
+}
+
+.mainframe::-webkit-scrollbar-thumb:active {
+    background-color: #e7535b;
+}
+
+.info {
+    width: 75%;
+    color: #EDEFF0;
+    margin: 45px auto;
+    line-height: 40px;
+    font-size: 18px;
+}
+

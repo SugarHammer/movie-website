@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+</head>
+<body>
+<div th:fragment="mynav">
+    <main class="site-wrapper" style="display: none">
+        <span class="icon-x wrap_btn"></span>
+        <div class="pt-table desktop-768">
+            <div class="pt-tablecell page-home relative">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                            <div class="page-title  home text-center">
+                                <span class="heading-page">欢迎来到我的影视网站</span>
+                                <p class="mt20">快捷入口</p>
+                            </div>
+                            <div class="hexagon-menu clear">
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/common/queryPh" class="hex-content">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-universal-access"></i>
+                                            </span>
+                                            <span class="title">影视排行</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/common/search" class="hex-content">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-bullseye"></i>
+                                            </span>
+                                            <span class="title">搜索</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/logout" class="hex-content logout">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-braille"></i>
+                                            </span>
+                                            <span class="title">注销</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/tologin" class="hex-content">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-id-badge"></i>
+                                            </span>
+                                            <span class="title">用户登录</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/common/updateMes" class="hex-content">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-life-ring"></i>
+                                            </span>
+                                            <span class="title">我的账号</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="javascript:;" class="hex-content click_back">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-clipboard"></i>
+                                            </span>
+                                            <span class="title">首页</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="hexagon-item">
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <div class="hex-item">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <a href="/common/about" class="hex-content">
+                                        <span class="hex-content-inner">
+                                            <span class="icon">
+                                                <i class="fa fa-map-signs"></i>
+                                            </span>
+                                            <span class="title">求片留言</span>
+                                        </span>
+                                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                    d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                                    fill="#1e2530"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+</div>
+</body>
+</html>

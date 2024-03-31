@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>影视内容</title>
+    <link rel="stylesheet" th:href="@{/css/common/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/common/icofont.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common/search.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index_main.css}">
+    <!--图标库-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
+    <style>
+    </style>
+</head>
+<body>
+<div th:include="detail/common/nav :: mynav"></div>
+<!-- 头部 -->
+<article class="head_nav">
+    <h1 class="nav_title">搜索</h1>
+    <div class="nav_logo">
+        <img th:src="@{/images/common/logo.png}" alt="logo"/>
+    </div>
+    <span class="icon-list nav_btn"></span>
+</article>
+<section class="aui-flexView">
+    <header class="aui-navBar aui-navBar-fixed b-line">
+        <a href="/common/index" class="aui-navBar-item">
+            <i class="icon icon-return"></i>
+        </a>
+        <div class="aui-center aui-center-clear">
+            <div class="aui-search-result">
+                <div class="aui-search-result-box">
+                    <input type="text" class="tname" placeholder="战狼">
+                    <i class="icon icon-search-tn search_btn"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="aui-scrollView">
+        <div class="aui-search-list">
+            <div class="aui-search-hots">
+                <h2><i class="icon icon-hots"></i> 搜索趋势</h2>
+            </div>
+        </div>
+    </section>
+    <div class="row search_result">
+        <div class="col-md-12" id="cont">
+            <ul class="ph_list"></ul>
+            <div class="resultSize"></div>
+        </div>
+    </div>
+</section>
+
+</body>
+<script th:src="@{/js/common/search.js}"></script>
+</html>

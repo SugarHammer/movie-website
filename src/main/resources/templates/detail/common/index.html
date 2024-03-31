@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{/css/common/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index.css}">
+    <link rel="stylesheet" th:href="@{/css/common/fclol.css}">
+    <link rel="stylesheet" th:href="@{/css/common/icofont.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index_main.css}">
+    <!--图标库-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
+
+</head>
+<body>
+<div class="head_nav">
+    <div class="nav_logo">
+        <img th:src="@{/images/common/logo.png}" alt="logo"/>
+    </div>
+    <span class="icon-list nav_btn"></span>
+</div>
+<!--公共footer  -->
+<!--common/footer:是子页面的文件路径 ；myfooter：是子页面中被引用代码块的名称
+（如th:fragment="myfooter"） -->
+<div th:include="detail/common/nav :: mynav"></div>
+
+<!-- 头部 -->
+<div class="main">
+    <header>
+        <div class="head_con">
+            <div class="head_left">
+                <i class="fc-lol-timo fc-icon-teda" id="head_icon"></i>
+                <!-- 导航栏-->
+                <div class="left_tab">
+                </div>
+            </div>
+            <div class="head_right">
+                <ul class="cl-effect-1">
+                    <li><a href="/tologin">登录</a></li>
+                    <li></li>
+                    <li>
+                        <div class="previewPhoto" th:if="${session.userName}!=null">
+                            <img th:src="@{${session.userImg}}" onerror="this.src='/images/logins.png'">
+                        </div>
+                        <div class="previewPhoto" th:if="${session.userName}==null">
+                            <img th:src="@{/images/logins.png}">
+                        </div>
+                        <!--                        <a href="javascript:;" th:if="${session.userName}!=null">-->
+                        <!--                            <span th:text="${session.userName}" class="name"></span>-->
+                        <!--                            &lt;!&ndash;                            <span th:text="|欢迎您:${session.userName}|"></span>&ndash;&gt;-->
+                        <!--                        </a>-->
+                        <a href="javascript:;" class="state" th:if="${session.userName}==null">
+                            <span th:text="未登录"></span>
+                        </a>
+                        <a href="javascript:;" class="state" th:if="${session.userName}!=null">
+                            <span th:text="${session.userName}" class="name"></span>
+                            <span th:text="已登录"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section id="content">
+        <!--banner开始-->
+        <div class="banner">
+            <ul class="list">
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="" alt=""></a></li>
+            </ul>
+            <ol class="img_btn"></ol>
+            <span class="icon-undo2 arrow left"></span>
+            <span class="icon-redo2 arrow right"></span>
+        </div>
+        <!--近期热播-->
+        <div class="con_area" id="hotPlay">
+            <div class="container">
+                <div class="recent_con">
+                    <div class="con_top">
+                        <h1>
+                            <i class="icofont icofont-movie"></i>
+                            近期热播
+                        </h1>
+                    </div>
+                    <div class="con_main">
+                        <ul id="main_bz" class="clearfix">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--综艺  -->
+        <div class="con_area" id="variety">
+            <div class="container">
+                <div class="recent_con">
+                    <div class="con_top">
+                        <h1>
+                            <i class="icofont icofont-movie"></i>
+                            综艺
+                        </h1>
+                    </div>
+                    <ul class="zy_ul">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--页脚  -->
+    <div th:include="detail/common/foot :: myfoot"></div>
+</div>
+<script th:src="@{/js/common/com_ajax.js}"></script>
+<script th:src="@{/js/common/scrolltopcontrol.js}"></script>
+<script th:src="@{/js/common/com_index.js}"></script>
+</body>
+</html>

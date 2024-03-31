@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="sie-edge"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login_reg.css}">
+    <script th:src="@{/js/jquery.js}"></script>
+    <title>登录注册页面</title>
+</head>
+
+<body>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form id="reg_form">
+            <h1>注册</h1>
+            <div class="icon">
+                <svg class="bi bi-person-circle yhm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                </svg>
+                <svg class="bi bi-lock-fill mm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                    <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                </svg>
+                <svg class="bi bi-lock-fill qrmm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                    <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                </svg>
+                <svg class="bi bi-emoji-sunglasses nl" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path fill-rule="evenodd"
+                          d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM6.5 6.497V6.5h-1c0-.568.447-.947.862-1.154C6.807 5.123 7.387 5 8 5s1.193.123 1.638.346c.415.207.862.586.862 1.154h-1v-.003l-.003-.01a.213.213 0 0 0-.036-.053.86.86 0 0 0-.27-.194C8.91 6.1 8.49 6 8 6c-.491 0-.912.1-1.19.24a.86.86 0 0 0-.271.194.213.213 0 0 0-.036.054l-.003.01z"/>
+                    <path d="M2.31 5.243A1 1 0 0 1 3.28 4H6a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2h-.438a2 2 0 0 1-1.94-1.515L2.31 5.243zM9 5a1 1 0 0 1 1-1h2.72a1 1 0 0 1 .97 1.243l-.311 1.242A2 2 0 0 1 11.439 8H11a2 2 0 0 1-2-2V5z"/>
+                </svg>
+
+            </div>
+            <input class="username" type="text" id="uname" maxlength="6" name="username" placeholder="用户名">
+            <input class="password" type="password" id="pwd" maxlength="6" name="password" placeholder="密码">
+            <input class="password" type="password" id="repeat_pwd" maxlength="6" name="repassword" placeholder="确认密码">
+            <input class="age" type="text" id="age" maxlength="3" name="age" placeholder="年龄">
+            <div class="checkSex">
+                <label for="man" class="radio">
+                    <span class="radio-bg"></span>
+                    <input type="radio" name="sex" id="man" value="男" checked="checked"/>男
+                    <span class="radio-on"></span> </label>
+                <label for="woman" class="radio">
+                    <span class="radio-bg"></span>
+                    <input type="radio" name="sex" id="woman" value="女"/>女
+                    <span class="radio-on"></span> </label>
+            </div>
+            <div data-toggle="distpicker" id="distpicker">
+                <select data-province="广东省"></select>
+            </div>
+            <button id="reg_sub" type="button">注册</button>
+            <div class="tip1" id="tip1"></div>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form id="login_form">
+            <h1>登录</h1>
+            <div class="icon">
+                <svg class="bi bi-person-circle yhm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                </svg>
+                <svg class="bi bi-lock-fill mm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                    <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                </svg>
+            </div>
+            <input class="username" type="text" id="username" maxlength="6" name="username" placeholder="用户名">
+            <input class="password" type="password" id="password" maxlength="6" name="password" placeholder="密码">
+            <button id="login_sub" type="button">登录</button>
+            <div class="jzw">
+                <input type="checkbox" name="rememberme" id="rem">
+                <label for="rem">记住我</label>
+            </div>
+            <div class="tip2" id="tip2"></div>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>欢迎回来</h1>
+                <p>请登录您的个人信息</p>
+                <button class="ghost" id="signIn">登录</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>欢迎光临</h1>
+                <p>输入您的个人资料，并与我们一起携手同行</p>
+                <button class="ghost" id="signUp">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/distpicker.js}"></script>
+<script th:src="@{/js/jquery.cookie.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+<script>
+
+    $(function () {
+        //省份下拉插件
+        $("#distpicker").distpicker();
+        //判断之前是否有设置cookie，如果有，则设置【记住我】选择框
+        if ($.cookie('absms_crm2_username') != undefined) {
+            $("#rem").attr("checked", true);
+        } else {
+            $("#rem").attr("checked", false);
+        }
+        //读取cookie
+        if ($('#rem:checked').length > 0) {
+            $('#username').val($.cookie('absms_crm2_username'));
+            $('#password').val($.cookie('absms_crm2_password'));
+        }
+        //监听【记住我】事件
+        $("#rem").click(function () {
+            if ($('#rem:checked').length > 0) {
+                //设置一个存储为7天的cookie
+                $.cookie('absms_crm2_username', $('#username').val(), {
+                    expires: 7
+                });
+                $.cookie('absms_crm2_password', $('#password').val(), {
+                    expires: 7
+                });
+            } else {
+                //清除cookie
+                $.removeCookie('absms_crm2_username');
+                $.removeCookie('absms_crm2_password');
+            }
+        });
+
+    })
+</script>
+</body>
+
+</html>

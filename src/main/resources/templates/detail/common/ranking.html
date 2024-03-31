@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <link rel="stylesheet" th:href="@{/css/common/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common/ranking.css}">
+    <link rel="stylesheet" th:href="@{/css/common/icofont.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index_main.css}">
+    <link rel="stylesheet" th:href="@{/css/common/button.min.css}">
+    <!--图标库-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
+</head>
+<body>
+<div th:include="detail/common/nav :: mynav"></div>
+<!-- 头部 -->
+
+<article class="head_nav">
+    <h1 class="nav_title">排行</h1>
+    <div class="nav_logo">
+        <img th:src="@{/images/common/logo.png}" alt="logo"/>
+    </div>
+    <span class="icon-list nav_btn"></span>
+</article>
+<!--排行榜-->
+
+<div class="con_area">
+    <div class="row">
+        <div class="col-md-7" id="cont">
+            <div class="con_top">
+                <div class="public top1">
+                    <div class="svg-wrapper">
+                        <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            <rect id="shape" height="100%" width="100%"/>
+                            <div id="text">
+                                <a href="javascript:;"><span class="spot"></span>电影排行</a>
+                            </div>
+                        </svg>
+                    </div>
+                </div>
+                <div class="public top2">
+                    <div class="svg-wrapper">
+                        <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            <rect id="shape" height="100%" width="100%"/>
+                            <div id="text">
+                                <a href="javascript:;"><span class="spot"></span>动漫排行</a>
+                            </div>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <ul class="ph_list one"></ul>
+            <ul class="ph_list two"></ul>
+        </div>
+        <div class="col-md-5" id="news">
+            <div class="inform">
+                <div class="tab">
+                    <ul>
+                        <li class="l1 on tab_title"><a href="javascript:void(0)"><i></i><span>资讯</span></a></li>
+                        <li class="l2 tab_title"><a href="javascript:void(0)"><i></i><span>预告</span></a></li>
+                        <li class="l3 tab_title"><a href="javascript:void(0)"><i></i><span>动态</span></a></li>
+                        <li class="l4 tab_title"><a href="javascript:void(0)"><i></i><span>最佳</span></a></li>
+                        <li class="l5 tab_title"><a href="javascript:void(0)"><i></i><span>搞笑</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="show">
+                    <ul class="wrapUl">
+                        <li class="new wrapLi"></li>
+                        <li class="foreshow wrapLi"></li>
+                        <li class="dynamic wrapLi"></li>
+                        <li class="best wrapLi"></li>
+                        <li class="cold wrapLi"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" id="recommend">
+            <div class="ti_title">站长推荐</div>
+            <ul class="tj">
+            </ul>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</body>
+<script th:src="@{/js/common/scrolltopcontrol.js}"></script>
+<script th:src="@{/js/common/ranking.js}"></script>
+</html>

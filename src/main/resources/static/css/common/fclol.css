@@ -1,0 +1,410 @@
+/**
+ * LOL英雄图标字体库
+ * by 封尘 https://lovefc.cn
+ * https://gitee.com/lovefc/lol_fonts
+ * time 2020/04/12 13:00
+ */
+@font-face {
+  font-family: 'fc-icon-lol';
+  src: url('font/fc_lol.woff2?v=2020041200') format("woff2"),
+  url('font/fc_lol.woff?v=2020041200') format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="fc-icon"],
+[class*="fc-icon-"] {
+  font-family: 'fc-icon-lol' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/** 字体大小 **/
+
+/** 小 **/
+.fc-icon-xiao {
+  font-size: 30px !important;
+}
+
+/** 中 **/
+.fc-icon-zhong {
+  font-size: 60px !important;
+}
+
+/** 大 **/
+.fc-icon-da {
+  font-size: 90px !important;
+}
+
+/** 中大 **/
+.fc-icon-zhongda {
+  font-size: 120px !important;
+}
+
+/** 特大 **/
+.fc-icon-teda {
+  font-size: 139px !important;
+}
+
+/** 渐变蓝 **/
+.fc-color-blue {
+  background: -webkit-linear-gradient(45deg, #2e4e7e, #003371, #426666, #44cef6, #56004f);
+  -moz-linear-gradient(45deg, #2e4e7e, #003371, #426666, #44cef6, #56004f);
+  -ms-linear-gradient(45deg, #2e4e7e, #003371, #426666, #44cef6, #56004f);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+/** 渐变红 **/
+.fc-color-red {
+  background: -webkit-linear-gradient(45deg, #622a1d, #60281e, #f9906f, #a98175, #c3272b);
+  -moz-linear-gradient(45deg, #622a1d, #60281e, #f9906f, #a98175, #c3272b);
+  -ms-linear-gradient(45deg, #622a1d, #60281e, #f9906f, #a98175, #c3272b);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+/** lol **/
+
+/** 猪妹 **/
+.fc-lol-zhumei:before {
+  content: "\e148";
+}
+
+/** 提莫 **/
+.fc-lol-timo:before {
+  content: "\e149";
+}
+
+/** 光辉 **/
+.fc-lol-guanghui:before {
+  content: "\e14a";
+}
+
+/** 奶妈 **/
+.fc-lol-naima:before {
+  content: "\e14b";
+}
+
+/** 寒冰 **/
+.fc-lol-hanbing:before {
+  content: "\e14c";
+}
+
+/** 艾克 **/
+.fc-lol-aike:before {
+  content: "\e14d";
+}
+
+/** 盲僧 **/
+.fc-lol-mangseng:before {
+  content: "\e14e";
+}
+
+/** EZ **/
+.fc-lol-ez:before {
+  content: "\e14f";
+}
+
+/** 狐狸 **/
+.fc-lol-huli:before {
+  content: "\e150";
+}
+
+/** 琴女 **/
+.fc-lol-qinnv:before {
+  content: "\e151";
+}
+
+/** 武器 **/
+.fc-lol-wuqi:before {
+  content: "\e152";
+}
+
+/** 滑板鞋 **/
+.fc-lol-huabanxie:before {
+  content: "\e153";
+}
+
+
+/** 薇恩 **/
+.fc-lol-vn:before {
+  content: "\e154";
+}
+
+/** 轮子妈 **/
+.fc-lol-lunzima:before {
+  content: "\e155";
+}
+
+/** 奎恩 **/
+.fc-lol-kuien:before {
+  content: "\e156";
+}
+
+/** 莫甘娜 **/
+.fc-lol-moganna:before {
+  content: "\e157";
+}
+
+/** 小炮 **/
+.fc-lol-xiaopao:before {
+  content: "\e158";
+}
+
+/** 女警 **/
+.fc-lol-nvjing:before {
+  content: "\e159";
+}
+
+
+/** 女枪 **/
+.fc-lol-nvqiang:before {
+  content: "\e15a";
+}
+
+/** 亚索 **/
+.fc-lol-yasuo:before {
+  content: "\e15b";
+}
+
+/** 瑞文 **/
+.fc-lol-ruiwen:before {
+  content: "\e15c";
+}
+
+/** 剑圣 **/
+.fc-lol-js:before {
+  content: "\e15d";
+}
+
+/** 球女 **/
+.fc-lol-qiunv:before {
+  content: "\e15e";
+}
+
+/** 卡牌 **/
+.fc-lol-kapai:before {
+  content: "\e15f";
+}
+
+
+/** 盖伦 **/
+.fc-lol-gailun:before {
+  content: "\e160";
+}
+
+/** 诺手 **/
+.fc-lol-nuoshou:before {
+  content: "\e161";
+}
+
+/** 蛮王 **/
+.fc-lol-manwang:before {
+  content: "\e162";
+}
+
+/** 剑姬 **/
+.fc-lol-jianji:before {
+  content: "\e163";
+}
+
+/** 刀妹 **/
+.fc-lol-daomei:before {
+  content: "\e164";
+}
+
+/** 戏命师 **/
+.fc-lol-ximingshi:before {
+  content: "\e165";
+}
+
+
+/** 阿卡丽 **/
+.fc-lol-akali:before {
+  content: "\e166";
+}
+
+/** 豹女 **/
+.fc-lol-baonv:before {
+  content: "\e167";
+}
+
+/** 猴子 **/
+.fc-lol-houzi:before {
+  content: "\e168";
+}
+
+/** 日女 **/
+.fc-lol-rinv:before {
+  content: "\e169";
+}
+
+/** 霞 **/
+.fc-lol-xia:before {
+  content: "\e16a";
+}
+
+/** 洛 **/
+.fc-lol-luo:before {
+  content: "\e16b";
+}
+
+/** 天使 **/
+.fc-lol-tianshi:before {
+  content: "\e16c";
+}
+
+/** 蛇女 **/
+.fc-lol-shenv:before {
+  content: "\e16d";
+}
+
+/** 阿木木 **/
+.fc-lol-amumu:before {
+  content: "\e16e";
+}
+
+/** 皎月 **/
+.fc-lol-jiaoyue:before {
+  content: "\e16f";
+}
+
+/** 波比 **/
+.fc-lol-bobi:before {
+  content: "\e170";
+}
+
+/** 安妮 **/
+.fc-lol-anni:before {
+  content: "\e171";
+}
+
+/** 赵信 **/
+.fc-lol-zhaoxin:before {
+  content: "\e172";
+}
+
+/** 剑魔 **/
+.fc-lol-jianmo:before {
+  content: "\e173";
+}
+
+/** 寡妇 **/
+.fc-lol-guafu:before {
+  content: "\e174";
+}
+
+/** 锤石 **/
+.fc-lol-chuishi:before {
+  content: "\e175";
+}
+
+/** 卡特丽娜 **/
+.fc-lol-katelina:before {
+  content: "\e176";
+}
+
+/** 风女 **/
+.fc-lol-fengnv:before {
+  content: "\e177";
+}
+
+
+/** 暗影之镰 **/
+.fc-lol-anyingzhilian:before {
+  content: "\e178";
+}
+
+/** 大头 **/
+.fc-lol-datou:before {
+  content: "\e179";
+}
+
+/** 潘森 **/
+.fc-lol-pansen:before {
+  content: "\e17a";
+}
+
+/** 纳尔 **/
+.fc-lol-naer:before {
+  content: "\e17b";
+}
+
+/** 娜美 **/
+.fc-lol-namei:before {
+  content: "\e17c";
+}
+
+/** 船长 **/
+.fc-lol-chuanzhang:before {
+  content: "\e17d";
+}
+
+
+/** 千珏 **/
+.fc-lol-qianjue:before {
+  content: "\e17e";
+}
+
+/** 布隆 **/
+.fc-lol-bulong:before {
+  content: "\e17f";
+}
+
+/** 卡莎 **/
+.fc-lol-kasha:before {
+  content: "\e180";
+}
+
+/** 妖姬 **/
+.fc-lol-yaoji:before {
+  content: "\e181";
+}
+
+/** 蜘蛛 **/
+.fc-lol-zhizhu:before {
+  content: "\e182";
+}
+
+/** 机器人 **/
+.fc-lol-jiqiren:before {
+  content: "\e183";
+}
+
+
+/** 狗头 **/
+.fc-lol-goutou:before {
+  content: "\e184";
+}
+
+/** 男枪 **/
+.fc-lol-nanqiang:before {
+  content: "\e185";
+}
+
+/** 奥巴马 **/
+.fc-lol-aobama:before {
+  content: "\e186";
+}
+
+/** 德莱文 **/
+.fc-lol-delaiwen:before {
+  content: "\e187";
+}
+
+/** 沙皇 **/
+.fc-lol-shahuang:before {
+  content: "\e188";
+}
+
+/** 扇子妈 **/
+.fc-lol-shanzima:before {
+  content: "\e189";
+}

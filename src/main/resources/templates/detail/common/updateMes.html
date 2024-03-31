@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/common/updateMes.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index_main.css}">
+    <!--图标库-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/layui/css/layui.css}">
+    <script th:src="@{/css/layui/layui.js}"></script>
+    <style>
+        #previewPhoto img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .uploadImg {
+            margin: 121px 0px 0px 160px;
+        }
+
+        .myform {
+            margin: 0px 0px 0px 0px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div th:include="detail/common/nav :: mynav"></div>
+<!-- 头部 -->
+<article class="head_nav">
+    <h1 class="nav_title">我的账号</h1>
+    <div class="nav_logo">
+        <img th:src="@{/images/common/logo.png}" alt="logo"/>
+    </div>
+    <span class="icon-list nav_btn"></span>
+</article>
+<main class="js_main">
+    <!-- 实现留言板功能 -->
+    <div class="mainframe">
+        <div class="form-group uploadImg">
+            <form action="imageUpload" method="post" class="myform" enctype="multipart/form-data">
+                <input type="file" name="fileName" id="filename"
+                       accept="image/png, image/jpeg, image/jpg">
+            </form>
+            <button type="button" class="layui-btn" id="test1">
+                <i class="layui-icon">&#xe67c;</i>更改头像
+            </button>
+            <div id="previewPhoto">
+                <img th:src="${session.userImg}" onerror="this.src='/images/logins.png'" alt="点击图片上传">
+            </div>
+
+        </div>
+        <div class="info">
+            <div class="form-group">
+                <label for="example-nf-username">用户名</label>
+                <input class="form-control" disabled id="example-nf-username"
+                       name="example-nf-username"
+                       th:value="${session.userName}"
+                       type="text">
+            </div>
+            <div class="form-group">
+                <label for="example-nf-age">年龄</label>
+                <input class="form-control" id="example-nf-age" name="example-nf-age"
+                       placeholder="请输入年龄" th:value="${session.userAge}" type="text">
+            </div>
+            <div class="form-group">
+                <label for="example-nf-sex">性别</label>
+                <input class="form-control" id="example-nf-sex" name="example-nf-sex"
+                       placeholder="请输入性别" th:value="${session.userSex}" type="text">
+            </div>
+            <div class="form-group">
+                <label for="example-nf-province">省份</label>
+                <input class="form-control" id="example-nf-province" name="example-nf-province"
+                       placeholder="请输入省份" th:value="${session.userProvince}" type="text">
+            </div>
+            <div class="form-group">
+                <label for="example-nf-password">密码</label>
+                <input class="form-control" id="example-nf-password" name="example-nf-password"
+                       placeholder="请输入密码" th:value="${session.userPassword}" type="text">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="button">提交</button>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script th:src="@{/js/common/updateUserMes.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var sessionName =/*[[${session.userName}]]*/;
+    if (sessionName != null) {
+        queryUserImg(sessionName);
+        $(".btn-primary").click(function () {
+            var username = $("#example-nf-username").val().trim();
+            var age = $("#example-nf-age").val().trim();
+            var sex = $("#example-nf-sex").val().trim();
+            var password = $("#example-nf-password").val().trim();
+            var province = $("#example-nf-province").val().trim();
+            var users = {
+                username: username,
+                sex: sex,
+                age: age,
+                password: password,
+                province: province
+            };
+            if (password == "" || age == "" || sex == "" || province == "") {
+                layer.msg("内容不能为空！", {icon: 5})
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/updateUserMes",
+                    datatype: "text",
+                    contentType: "application/json",
+                    data: JSON.stringify(users),
+                    async: true,
+                    success: function (result) {
+                        console.log(result);
+                        if ("1" == result) {
+                            layer.alert("修改成功！请按确定,2s后自动退出登录", function () {
+                                setTimeout(function () {
+                                    parent.location.href = "/tologin";
+                                }, 2000);
+                            });
+                        } else {
+                            layer.alert("修改失败！");
+                        }
+                    },
+                    error: function () {
+                        layer.alert("数据请求失败", {icon: 4});
+                    }
+                });
+            }
+        })
+    } else {
+        layer.msg("用户未登录！", {icon: 5});
+    }
+    $("#filename").on("change", function () {
+        if (sessionName != null) {
+            checkImage();
+            checkSubmit();
+            queryUserImg(sessionName);
+        } else {
+            layer.msg("用户未登录！", {icon: 5});
+        }
+    });
+    $("#test1").click(function () {
+        $(".myform").stop().slideToggle(200);
+    })
+
+    //检查图片
+    function checkImage() {
+        var fileName = $("#filename").val();
+        var flag = true;
+        if (fileName == "") {
+            flag = false;
+            alert("请选择图片");
+        } else {
+            var size = $("#filename")[0].files[0].size;
+            if (size / 1000 > 100) {
+                flag = false;
+                alert("图片大小不能超过100KB");
+            }
+        }
+        if (flag) {
+            onLoadImage();
+        } else {//清除input type=file的显示内容
+            $("#filename").val("");
+        }
+        return flag;
+    }
+
+    //预览图片
+    function onLoadImage() {
+        var file = $('#filename').get(0).files[0];
+        var reader = new FileReader();
+        //将文件以Data URL形式读入页面
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            //显示文件
+            $("#previewPhoto img").attr("src", this.result);
+        }
+    }
+
+    /*上传图片
+   1.processData设置为false。因为data值是FormData对象，不需要对数据做处理。
+   2.<form>标签添加enctype="multipart/form-data"属性。
+   3.cache设置为false，上传文件不需要缓存。
+   4.contentType设置为false，不设置contentType值，因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="multipart/form-data"，所以这里设置为false。
+   */
+    function checkSubmit() {
+        var formdata = new FormData();
+        formdata.append('fileName', $('#filename').get(0).files[0]);
+        formdata.append('username', sessionName);
+        $.ajax({
+            cache: false,
+            async: false,
+            type: 'POST',
+            url: "/imageUpload",
+            dataType: 'json',
+            data: formdata,
+            contentType: false,//ajax上传图片需要添加
+            processData: false,//ajax上传图片需要添加
+            success: function (data) {
+                console.log(data);
+                if (data.hasOwnProperty("relativePath")) {
+                    $("#previewPhoto img").attr("src", data.relativePath);
+                    // setInterval(function () {
+                    //     queryUserImg(sessionName)
+                    // }, 500)
+                    updateImg(sessionName,data.relativePath);
+                } else {
+                    layer.msg("上传失败", {icon: 5});
+                }
+                layer.alert(data.result_msg, {icon: 4});
+            },
+            error: function () {
+                layer.alert("数据请求失败", {icon: 4});
+            }
+        })
+    }
+
+    function updateImg(name,img) {
+        $.ajax({
+            async: true,
+            cache: false,
+            type: "POST",
+            url: "/common/updateFImg",
+            datatype: "json",
+            data:{
+                username:name,
+                imgUrl:img
+            },
+            success: function (data) {
+                console.log(data);
+            },
+        })
+    }
+
+    function queryUserImg(name) {
+        $.ajax({
+            async: true,
+            cache: false,
+            type: "POST",
+            dataType: "json",
+            url: "/admin/findImg/" + name,
+            success: function (data) {
+                console.log(data);
+                $("#previewPhoto img").attr("src", data.ImgUrl);
+            },
+            error: function () {
+                layer.alert("用户还没有设置头像！", {icon: 4}, function () {
+                    $("#previewPhoto img").attr('src', '/images/logins.png');
+                });
+                // 替换为默认图片
+            }
+        });
+    }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>留言</title>
+    <link rel="stylesheet" th:href="@{/css/common/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common/about.css}">
+    <link rel="stylesheet" th:href="@{/css/common/index_main.css}">
+    <!--图标库-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
+</head>
+<body>
+<div th:include="detail/common/nav :: mynav"></div>
+<!-- 头部 -->
+<article class="head_nav">
+    <h1 class="nav_title">求片留言</h1>
+    <div class="nav_logo">
+        <img th:src="@{/images/common/logo.png}" alt="logo"/>
+    </div>
+    <span class="icon-list nav_btn"></span>
+</article>
+<main class="js_main">
+    <!-- 实现留言板功能 -->
+    <div class="mainframe">
+        <div class="message">寄语</div>
+        <div class="info">
+            这是xx留下的寄语~
+        </div>
+        <div class="content" contenteditable="true"></div>
+        <input type="button" name="submit" value="发表" class="subbtn">
+        <div class="numofmessage"></div>
+        <!-- 下面是留言区 -->
+        <div class="msgFrame">
+        </div>
+    </div>
+    </div>
+
+</main>
+</body>
+<script th:src="@{/js/common/word.js}"></script>
+<script th:src="@{/js/common/about.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(function () {
+        let sessionName =/*[[${session.userName}]]*/;
+        let sessionImg =/*[[${session.userImg}]]*/;
+        console.log(sessionName);
+        var id = getId();
+        //发表留言
+        $(".subbtn").on("click", function () {
+            if (sessionName == null) {
+                layer.msg("用户请登录后再留言！", {icon: 5});
+            } else {
+                var created = time();
+                var content = $(".content").text().trim();
+                if (content == '') {
+                    layer.msg("请输入内容！", {icon: 5});
+                } else {
+
+                    layer.msg("确认评论?", {
+                        time: 0,
+                        icon: 7,
+                        btn: ["是", "否"],
+                        yes: function (index) {
+                            layer.close(index);
+                            const obj = {
+                                id: id+1,
+                                com_content: content,
+                                username: sessionName,
+                                created: created,
+                                ImgUrl: sessionImg
+                            };
+                            console.log(obj);
+                            $.ajax({
+                                type: "POST",
+                                url: "/common/insertPl",
+                                datatype: "text",
+                                contentType: "application/json",
+                                data: JSON.stringify(obj),
+                                async: true,
+                                success: function (data1) {
+                                    console.log(data1);
+                                    const html = "<div class='content_1'>" +
+                                        "<span class='plid' style='display: none'>" + id + "</span>" +
+                                        "<img class='name' src='" + sessionImg + "'" +
+                                        "     alt='photo'>" +
+                                        "  <div class='mainInfo'>" +
+                                        "   <div class='userId'><a href='javascript:;'>" + sessionName + "</a></div>" +
+                                        "    <div class='conInfo'>" + content + "</div>" +
+                                        " <div class='time'>" + created + "</div>" + "</div>" + "</div>";
+                                    $(".msgFrame").append(html);
+                                    $(".content").text("");
+                                    location.reload();//刷新页面
+                                }, error: function () {
+                                    layer.alert('服务器请求失败！', {icon: 4});
+                                }
+                            });
+                        }
+                    })
+                }
+            }
+        })
+    })
+    window.onload = function () {
+        setTimeout(function () {
+            console.log(11);
+            $('.msgFrame img').on("error", function () {
+                $(this).attr('src', '/images/avatar/logins.png');  // 替换为默认图片
+            });
+            if ($('.msgFrame img').attr("src") == null) {
+                $('.msgFrame img').attr('src', '/images/avatar/logins.png');
+            }
+        }, 600);
+    };
+
+    function time() {
+        var dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours(); //获取时
+        var m = dt.getMinutes(); //获取分
+        var s = dt.getSeconds(); //获取秒
+        if (m < 10) {
+            m = "0" + m;
+        }
+        if (s < 10) {
+            s = "0" + s;
+        }
+        return y + '-' + mt + '-' + day + ' ' + h + ':' + m + ':' + s;
+    }
+    function getId() {
+        $.ajax({
+            async: true,
+            cache: false,
+            type: "POST",
+            url: "/common/getMaxId",
+            dataType: "json",
+            success(data){
+                console.log(data)
+            }
+
+        });
+    }
+    /*]]>*/
+</script>
+</html>
